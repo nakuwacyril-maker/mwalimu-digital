@@ -1,0 +1,7 @@
+{
+  "name": "mwalimu-digital-hub",
+  "compatibility_date": "2026-10-09",
+  "assets": {
+    "directory": "./public/"
+  }
+}
