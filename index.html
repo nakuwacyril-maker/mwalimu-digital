@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="description"
+        content="A digital workspace for CBC planning, teaching, assessment, learner support and reporting."
+    >
+    <meta name="theme-color" content="#f5f7fb">
+    <title>Mwalimu Digital Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js" defer></script>
+</head>
+
+<body>
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <symbol id="icon-home" viewBox="0 0 24 24">
+            <path d="m3 10 9-7 9 7"></path><path d="M5 9v12h14V9M9 21v-7h6v7"></path>
+        </symbol>
+        <symbol id="icon-learners" viewBox="0 0 24 24">
+            <circle cx="9" cy="8" r="3"></circle><path d="M3 20c0-3.3 2.4-5 6-5s6 1.7 6 5"></path>
+            <path d="M16 5.5a3 3 0 0 1 0 5.8M17 15c2.5.4 4 2 4 5"></path>
+        </symbol>
+        <symbol id="icon-calendar" viewBox="0 0 24 24">
+            <rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path>
+            <path d="m9 15 2 2 4-4"></path>
+        </symbol>
+        <symbol id="icon-timetable" viewBox="0 0 24 24">
+            <rect x="3" y="4" width="18" height="17" rx="2"></rect><path d="M8 4v17M15 4v17M3 10h18M3 16h18"></path>
+        </symbol>
+        <symbol id="icon-planning" viewBox="0 0 24 24">
+            <path d="m4 16-.8 4.8L8 20l11.5-11.5a2.8 2.8 0 0 0-4-4L4 16Z"></path>
+            <path d="m13.5 6.5 4 4"></path>
+        </symbol>
+        <symbol id="icon-assessment" viewBox="0 0 24 24">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"></path>
+            <path d="M14 2v6h6M8 13h8M8 17h8"></path>
+        </symbol>
+        <symbol id="icon-heart" viewBox="0 0 24 24">
+            <path d="M20.8 8.6c0 5.1-8.8 11-8.8 11s-8.8-5.9-8.8-11A4.6 4.6 0 0 1 12 6a4.6 4.6 0 0 1 8.8 2.6Z"></path>
+        </symbol>
+        <symbol id="icon-reports" viewBox="0 0 24 24">
+            <path d="M3 3v18h18"></path><path d="m7 14 4-4 4 3 6-7"></path>
+        </symbol>
+        <symbol id="icon-arrow" viewBox="0 0 24 24">
+            <path d="M7 17 17 7M8 7h9v9"></path>
+        </symbol>
+        <symbol id="icon-next" viewBox="0 0 24 24">
+            <path d="M5 12h14M13 6l6 6-6 6"></path>
+        </symbol>
+    </svg>
+    <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#dashboard" aria-label="Mwalimu Digital home">
+            <span class="brand-icon" aria-hidden="true">MD</span>
+            <span class="brand-copy">
+                <span class="brand-name">Mwalimu Digital</span>
+                <span class="brand-caption">TEACHER HUB</span>
+            </span>
+        </a>
+
+        <nav class="navigation" aria-label="Workspace">
+            <button class="nav-link active" type="button" data-page="dashboard" aria-current="page">
+                <span class="nav-icon" aria-hidden="true"><svg><use href="#icon-home"></use></svg></span>Dashboard
+            </button>
+            <button class="nav-link" type="button" data-page="learners">
+                <span class="nav-icon" aria-hidden="true"><svg><use href="#icon-learners"></use></svg></span>Nominal Roll
+            </button>
+            <button class="nav-link" type="button" data-page="attendance">
+                <span class="nav-icon" aria-hidden="true"><svg><use href="#icon-calendar"></use></svg></span>Attendance Register
+            </button>
+            <button class="nav-link" type="button" data-page="timetable">
+                <span class="nav-icon" aria-hidden="true"><svg><use href="#icon-timetable"></use></svg></span>Timetable Generator
+            </button>
+            <button class="nav-link" type="button" data-page="planning">
+                <span class="nav-icon" aria-hidden="true"><svg><use href="#icon-planning"></use></svg></span>CBC Planning
+            </button>
+            <button class="nav-link" type="button" data-page="assessment">
+                <span class="nav-icon" aria-hidden="true"><svg><use href="#icon-assessment"></use></svg></span>Assessment &amp; Exams
+            </button>
+            <button class="nav-link" type="button" data-page="support">
+                <span class="nav-icon" aria-hidden="true"><svg><use href="#icon-heart"></use></svg></span>Learner Support
+            </button>
+            <button class="nav-link" type="button" data-page="reports">
+                <span class="nav-icon" aria-hidden="true"><svg><use href="#icon-reports"></use></svg></span>Reports
+            </button>
+        </nav>
+
+        <div class="sidebar-footer">
+            <span class="status-dot" aria-hidden="true"></span>
+            Your teaching workspace
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">YOUR DIGITAL TEACHER WORKSPACE</p>
+                <h1 id="page-title" aria-live="polite">Dashboard</h1>
+            </div>
+            <div class="teacher-profile">
+                <time class="today-date" id="workspace-date"></time>
+                <span class="profile-avatar" aria-hidden="true">T</span>
+                <span class="profile-name">Teacher</span>
+            </div>
+        </header>
+
+        <div class="content-wrap">
+            <section id="dashboard" class="page active" aria-labelledby="welcome-title">
+                <div class="welcome">
+                    <div class="welcome-copy">
+                        <p class="welcome-kicker">PLAN <span>·</span> TEACH <span>·</span> ASSESS <span>·</span> SUPPORT</p>
+                        <h2 id="welcome-title">A calmer way to<br>manage your classroom.</h2>
+                        <p>
+                            Everything you need to plan lessons, care for your learners and
+                            keep your school week on track — all in one place.
+                        </p>
+                        <button class="primary-button" type="button" data-page="planning">
+                            Start planning <span aria-hidden="true"><svg><use href="#icon-next"></use></svg></span>
+                        </button>
+                    </div>
+                    <div class="welcome-art" aria-hidden="true">
+                        <span class="art-sun"></span>
+                        <span class="art-book art-book-back"></span>
+                        <span class="art-book art-book-front"></span>
+                        <span class="art-pencil"></span>
+                        <span class="art-sparkle">✦</span>
+                    </div>
+                </div>
+
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">YOUR TOOLKIT</p>
+                        <h2>Ready when you are</h2>
+                    </div>
+                    <span class="section-note">Your classroom, thoughtfully organised</span>
+                </div>
+
+                <div class="module-grid">
+                    <button class="module-card card-violet" type="button" data-page="learners">
+                        <span class="card-icon" aria-hidden="true"><svg><use href="#icon-learners"></use></svg></span>
+                        <span class="card-title">Nominal Roll</span>
+                        <span class="card-description">Manage learner records and class lists.</span>
+                        <span class="card-arrow" aria-hidden="true"><svg><use href="#icon-arrow"></use></svg></span>
+                    </button>
+                    <button class="module-card card-blue" type="button" data-page="timetable">
+                        <span class="card-icon" aria-hidden="true"><svg><use href="#icon-timetable"></use></svg></span>
+                        <span class="card-title">Timetable</span>
+                        <span class="card-description">Allocate lessons and organise school time.</span>
+                        <span class="card-arrow" aria-hidden="true"><svg><use href="#icon-arrow"></use></svg></span>
+                    </button>
+                    <button class="module-card card-orange" type="button" data-page="assessment">
+                        <span class="card-icon" aria-hidden="true"><svg><use href="#icon-assessment"></use></svg></span>
+                        <span class="card-title">Assessment</span>
+                        <span class="card-description">Record evidence using EE, ME, AE and BE.</span>
+                        <span class="card-arrow" aria-hidden="true"><svg><use href="#icon-arrow"></use></svg></span>
+                    </button>
+                    <button class="module-card card-green" type="button" data-page="support">
+                        <span class="card-icon" aria-hidden="true"><svg><use href="#icon-heart"></use></svg></span>
+                        <span class="card-title">Learner Support</span>
+                        <span class="card-description">Track individual needs and interventions.</span>
+                        <span class="card-arrow" aria-hidden="true"><svg><use href="#icon-arrow"></use></svg></span>
+                    </button>
+                    <button class="module-card card-rose" type="button" data-page="attendance">
+                        <span class="card-icon" aria-hidden="true"><svg><use href="#icon-calendar"></use></svg></span>
+                        <span class="card-title">Attendance</span>
+                        <span class="card-description">Keep a clear, consistent record of each school day.</span>
+                        <span class="card-arrow" aria-hidden="true"><svg><use href="#icon-arrow"></use></svg></span>
+                    </button>
+                    <button class="module-card card-teal" type="button" data-page="planning">
+                        <span class="card-icon" aria-hidden="true"><svg><use href="#icon-planning"></use></svg></span>
+                        <span class="card-title">CBC Planning</span>
+                        <span class="card-description">Shape schemes of work and purposeful lessons.</span>
+                        <span class="card-arrow" aria-hidden="true"><svg><use href="#icon-arrow"></use></svg></span>
+                    </button>
+                </div>
+            </section>
+
+            <section id="learners" class="page placeholder-page" aria-labelledby="learners-title" hidden>
+                <span class="placeholder-icon" aria-hidden="true"><svg><use href="#icon-learners"></use></svg></span>
+                <p class="eyebrow">CLASSROOM MANAGEMENT</p>
+                <h2 id="learners-title">Nominal Roll</h2>
+                <span class="coming-soon">COMING SOON</span>
+                <p>Keep class lists and learner details organised in one place.</p>
+                <button class="text-button" type="button" data-page="dashboard">Back to your dashboard <span aria-hidden="true"><svg><use href="#icon-next"></use></svg></span></button>
+            </section>
+
+            <section id="attendance" class="page placeholder-page" aria-labelledby="attendance-title" hidden>
+                <span class="placeholder-icon" aria-hidden="true"><svg><use href="#icon-calendar"></use></svg></span>
+                <p class="eyebrow">DAILY RECORDS</p>
+                <h2 id="attendance-title">Attendance Register</h2>
+                <span class="coming-soon">COMING SOON</span>
+                <p>Make daily roll call simple and keep attendance records at hand.</p>
+                <button class="text-button" type="button" data-page="dashboard">Back to your dashboard <span aria-hidden="true"><svg><use href="#icon-next"></use></svg></span></button>
+            </section>
+
+            <section id="timetable" class="page placeholder-page" aria-labelledby="timetable-title" hidden>
+                <span class="placeholder-icon" aria-hidden="true"><svg><use href="#icon-timetable"></use></svg></span>
+                <p class="eyebrow">SCHOOL SCHEDULE</p>
+                <h2 id="timetable-title">Timetable Generator</h2>
+                <span class="coming-soon">COMING SOON</span>
+                <p>Bring your weekly lessons and school schedule together.</p>
+                <button class="text-button" type="button" data-page="dashboard">Back to your dashboard <span aria-hidden="true"><svg><use href="#icon-next"></use></svg></span></button>
+            </section>
+
+            <section id="planning" class="page placeholder-page" aria-labelledby="planning-title" hidden>
+                <span class="placeholder-icon" aria-hidden="true"><svg><use href="#icon-planning"></use></svg></span>
+                <p class="eyebrow">CURRICULUM DESIGN</p>
+                <h2 id="planning-title">CBC Planning</h2>
+                <span class="coming-soon">COMING SOON</span>
+                <p>Build schemes of work and lesson plans around the CBC curriculum.</p>
+                <button class="text-button" type="button" data-page="dashboard">Back to your dashboard <span aria-hidden="true"><svg><use href="#icon-next"></use></svg></span></button>
+            </section>
+
+            <section id="assessment" class="page placeholder-page" aria-labelledby="assessment-title" hidden>
+                <span class="placeholder-icon" aria-hidden="true"><svg><use href="#icon-assessment"></use></svg></span>
+                <p class="eyebrow">LEARNER PROGRESS</p>
+                <h2 id="assessment-title">Assessment and Examinations</h2>
+                <span class="coming-soon">COMING SOON</span>
+                <p>Bring assessment evidence, rubrics and learner progress into focus.</p>
+                <button class="text-button" type="button" data-page="dashboard">Back to your dashboard <span aria-hidden="true"><svg><use href="#icon-next"></use></svg></span></button>
+            </section>
+
+            <section id="support" class="page placeholder-page" aria-labelledby="support-title" hidden>
+                <span class="placeholder-icon" aria-hidden="true"><svg><use href="#icon-heart"></use></svg></span>
+                <p class="eyebrow">PERSONALISED LEARNING</p>
+                <h2 id="support-title">Individual Learner Support</h2>
+                <span class="coming-soon">COMING SOON</span>
+                <p>Keep individual learning goals and support steps close at hand.</p>
+                <button class="text-button" type="button" data-page="dashboard">Back to your dashboard <span aria-hidden="true"><svg><use href="#icon-next"></use></svg></span></button>
+            </section>
+
+            <section id="reports" class="page placeholder-page" aria-labelledby="reports-title" hidden>
+                <span class="placeholder-icon" aria-hidden="true"><svg><use href="#icon-reports"></use></svg></span>
+                <p class="eyebrow">INSIGHTS</p>
+                <h2 id="reports-title">Reports</h2>
+                <span class="coming-soon">COMING SOON</span>
+                <p>Make attendance, competency and learner progress easier to understand.</p>
+                <button class="text-button" type="button" data-page="dashboard">Back to your dashboard <span aria-hidden="true"><svg><use href="#icon-next"></use></svg></span></button>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
